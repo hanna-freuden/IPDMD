@@ -1,4 +1,4 @@
-# oTree
+# The Intergroup Prisoner's Dilemma Maximizing Difference Game in oTree
 I use the python-based oTree framework (Chen et al. 2016) to implement an integroup prisoners' dilemma maximizing difference game (Halevy et al. 2008).
 
 
