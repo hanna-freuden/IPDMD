@@ -1,5 +1,5 @@
 # The Intergroup Prisoner's Dilemma Maximizing Difference Game in oTree
-The integroup prisoners' dilemma maximizing difference game (Halevy et al. 2008) implemented in the python-based oTree framework (Chen et al. 2016).
+The intergroup prisoners' dilemma maximizing difference game (Halevy et al. 2008) implemented in the python-based oTree framework (Chen et al. 2016).
 
 
 # References
