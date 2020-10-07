@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %} Gruppenaufgabe {% endblock %}
+
+{% block content %}
+
+    <h4>Ihre Entscheidung</h4>
+Vielen Dank für das Ausfüllen der Übungsaufgabe.
+<p>Bitte entscheiden Sie sich jetzt, wieviel von Ihren 10 € Sie in Topf A und B einzahlen oder behalten möchten.</p>
+
+
+
+<table >
+ <tbody class="noborders">
+    <tr>
+        <td>Meine Einzahlung in <b>Topf A</b></td>
+        <td>Meine Einzahlung in <b>Topf B</b> </td>
+        <td><b>Behalten</b></td>
+    </tr>
+    <tr>
+        <td>meiner Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</td>
+        <td>meiner Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</td>
+    </tr>
+    <tr class="noborders">
+        <td width="40%">{% formfield player.contribution_within %} </td>
+        <td width="40%">  {% formfield player.contribution_between  %} </td>
+        <td width="40%"> {% formfield player.keep %}</td>
+    </tr>
+ </tbody>
+ </table>
+    <p>
+    </p>
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}  Gruppenaufgabe {% endblock %}
+
+{% block content %}
+
+
+<h4> <b>Gruppe</b> {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} </h4>
+<p>Stellen Sie sich vor, jedes der drei Mitgliedlieder der anderen Gruppe  {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} hat ebenfalls 5€ in Topf A und 5€ in Topf B eingezahlt. </p>
+
+<p> Wieviel ist jetzt im Topf A und B der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}? Vervollständigen Sie die Tabelle. </p>
+
+<table class="table">
+
+    <tr>
+        <td width="16%"><b>Topf A andere Gruppe</b> </td>
+        <td width="16%"><b>Topf B andere Gruppe</b> </td>
+
+    </tr>
+    <tr>
+        <td>{% formfield player.ex_sum_a1 %}</td>
+        <td><b> {% formfield player.ex_sum_b1 %} </b> </td>
+
+    </tr>
+ </table>
+<p></p>
+<p> Für jeden Euro in Topf B der {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} werden Ihnen und jedem Mitglied Ihrer Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} 0,50 € abgezogen. </p>
+<p> Wieviel wird jedem Mitglied Ihrer Gruppe  {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} abgezogen? </p>
+<p>{% formfield player.ex_minus %}</p>
+<p>Wie hoch ist Ihre Endauszahlung für diese Aufgabe?
+ <table class="table">
+
+    <tr>
+        <th >Behalten </th>
+        <th > </th>
+        <th>Rückzahlung aus Topf A und B Ihrer Gruppe  {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} </th>
+        <th > </th>
+        <th > Abzug durch Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}  </th>
+        <th > </th>
+        <th > Endauszahlung </th>
+    </tr>
+    <tr>
+        <td > 0€ </td>
+        <td >+ </td>
+        <td> 15 € </td>
+        <td>- </td>
+        <td> 7,50 €</td>
+        <td >= </td>
+        <td >{% formfield player.ex_final %} </td>
+    </tr>
+ </table>
+
+<p> Für jeden Euro in Topf B Ihrer Gruppe  {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}  wird jedem Mitglied der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} 0,50 € abgezogen. Im Topf B Ihrer Gruppe  {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}  sind 15€. </p>
+<p> Wieviel wird jedem Mitglied der Gruppe  {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} abgezogen?</p>
+</p><p>{% formfield player.ex_minus1 %}</p>
+<p></p>
+
+    {% next_button %}
+{% endblock %}
+

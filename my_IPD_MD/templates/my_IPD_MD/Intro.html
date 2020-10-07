@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %} Gruppenaufgabe {% endblock %}
+
+{% block content %}
+
+{% comment %}
+<table class="table" rules="none" >
+    <tr>
+        <th width=500px>
+        </th>
+        <th  bgcolor=#CCFFCC> Ihr Teilnahmebetrag:
+        </th>
+        <th bgcolor=#CCFFCC> {{ Constants.show_up }} €
+        </th>
+    </tr>
+</table>
+{% endcomment %}
+
+Für die folgende Aufgabe werden unter den hier anwesenden Teilnehmern <b>2 Gruppen</b> gebildet. <p>Sie gehören zur Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font> {% else %} <font color="#4FBA44"><b> "Grün" </b></font>   {% endif %}. Die andere Gruppe ist {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font> {% else %} <font color="#4FBA44"><b> "Grün" </b></font>   {% endif %}.</p>
+    <p>
+    Jede Gruppe besteht aus  <b>3 Teilnehmern</b>. Die Zusammensetzung der Gruppen ist <b>komplett zufällig</b>. Die Identität Ihrer Gruppenpartner bleibt immer <b>anonym</b> und wird auch nach dem Experiment nicht verraten. </p>
+
+ {% if player.id_in_group < 4 %}   <img src="{% static 'IPD_groups_blue.png' %}" /> {% else %} <img src="{% static 'IPD_groups_green.png' %}" /> {% endif %}
+     <p></p>
+     <p></p>
+     <p></p>
+        {% next_button %}
+
+{% endblock %}
+
+
+
+
+

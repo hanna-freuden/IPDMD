@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}
+    Final results
+{% endblock %}
+
+{% block content %}
+
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Player and outcome</th>
+        </tr>
+        {% for p in player.in_all_rounds %}
+            <tr>
+                <td>{{ p.round_number }}</td>
+                <td>
+                    You were the {{ p.role }}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <p>
+        The paying round was XX .
+        Your total payoff is therefore YY.
+    </p>
+
+
+{% endblock %}

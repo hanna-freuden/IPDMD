@@ -1,0 +1,105 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}  Gruppenaufgabe {% endblock %}
+
+{% block content %}
+<h4>Beispiel 1</h4>
+
+ <img src="{% static 'IPD_decisions_small.png' %}"/>
+     <p></p>
+<h4><b>Ihre Gruppe</b> {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} </h4>
+<p>Stellen Sie sich vor, Sie haben 5 € von {{ Constants.endowment }} in Topf A eingezahlt. </p>
+<p>Die beiden anderen Mitglieder der Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} haben ebenfalls 5€ in Topf A und 0€ in Topf B eingezahlt. Somit sind in Topf A nun 3*5€=15€ und 0€ in Topf B.</p>
+
+<table class="table" >
+    <tr>
+        <th width="12%"></th>
+        <th width="26%">Topf A</th>
+        <th width="26%">Topf B</th>
+        <th width="26%">Behalten</th>
+        <th width="8%"></th>
+    </tr>
+    <tr>
+        <td ><b> Sie: </b> </td>
+        <td>5 €  </td>
+        <td> 0 €  </td>
+        <td>  5 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 1 </b> </td>
+        <td > 5 €  </td>
+        <td > 0 €  </td>
+        <td > 5 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 2 </b> </td>
+        <td > 5 €  </td>
+        <td > 0 €  </td>
+        <td > 5 € </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Summe </b> </td>
+        <td ><b> 15 € </b> </td>
+        <td> <b> 0 €</b>  </td>
+        <td> <b> </b>        </td>
+        <td></td>
+    </tr>
+ </table>
+<p></p>
+<p>Für jeden Euro in Topf A oder B erhalten Sie und beide Mitglieder Ihrer eigenen Gruppe nun 0,50€.</p>
+<p>Im Topf A sind 15€. Also erhalten Sie und alle Mitglieder Ihrer eigenen Gruppe nun 0,50€*15€=7,50€ aus Topf A.</p>
+
+<table class="table" >
+    <tr>
+        <td ></td>
+        <td colspan="1" align="center" ><b>Rückzahlung aus</b></td>
+        <td ></td>
+        <td ></td>
+        <td ></td>
+    </tr>
+    <tr>
+        <td width="12%"></td>
+        <td width="26%"><b>Topf A</b> </td>
+        <td width="26%"><b>Topf B</b> </td>
+        <td width="26%"><b>Behalten</b> </td>
+        <td width="8%"><b>Endbetrag</b> </td>
+    </tr>
+    <tr>
+        <td><b>  Sie </b> </td>
+        <td><b> 0,50€ * 15 € = 7,50 € </b> </td>
+        <td > <b> + 0 €</b>  </td>
+        <td> <b>  + 5 €   </b>  </td>
+        <td bgcolor=#D7DBDD><b>12,50 €  <b></td>
+    </tr>
+    <tr>
+        <td><b> Mitglied 1</b> </td>
+        <td><b> 0,50€ * 15 € = 7,50 € </b> </td>
+        <td > <b> + 0 €</b>  </td>
+        <td> <b>  + 5 €   </b>  </td>
+        <td bgcolor=#D7DBDD><b>12,50 €  <b></td>
+    </tr>
+        <tr>
+        <td><b> Mitglied 2 </b> </td>
+        <td><b> 0,50€ * 15 € = 7,50 € </b> </td>
+        <td > <b> + 0 €</b>  </td>
+        <td> <b>  + 5 €   </b>  </td>
+        <td bgcolor=#D7DBDD><b>12,50 €  <b></td>
+    </tr>
+
+
+ </table>
+<p>Sie haben 5€ behalten und bekommen 7,50 € aus Topf A. Ihr vorläufiger Endbetrag für diese Aufgabe sind also 12,50 €.</p>
+
+<p>Der Endbetrag, den Sie in dieser Aufgabe bekommen, hängt aber auch von Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} ab.</p>
+
+
+
+    {% next_button %}
+{% endblock %}
+
+
+

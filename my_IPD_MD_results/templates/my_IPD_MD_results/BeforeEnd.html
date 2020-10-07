@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Vielen Dank für Ihre Angaben!
+{% endblock %}
+
+{% block content %}
+
+<p> Gleich erhalten Sie Ihre Ergebnisse. </p>
+{% formfields %}
+
+
+    {% next_button %}
+
+{% endblock %}
+

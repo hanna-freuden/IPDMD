@@ -1,0 +1,115 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}  Gruppenaufgabe {% endblock %}
+
+{% block content %}
+<h4>Beispiel 1</h4>
+
+ <img src="{% static 'IPD_decisions_small.png' %}"/>
+     <p></p>
+<h4><b>Andere Gruppe</b> {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} </h4>
+<p>Jedes Mitglied der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} kann ebenso in <b>2 verschiedene Töpfe (A und B)</b> einzahlen oder das Guthaben <b>behalten</b>. Für jeden Euro in <b>Topf A</b> erhält jedes Mitglied der anderen Gruppe <b>0,50 €</b>. Für jeden Euro in <b>Topf B</b> erhält jedes Mitglied der anderen Gruppe ebenfalls <b>0,50 €</b>. Zusätzlich werden aber jedem Mitglied Ihrer Gruppe <b>0,50 €</b> abgezogen. </p>
+    <p></p>
+    <p><b>Fall 1</b></p>
+<p>Nehmen Sie nun an, jedes Mitglied der {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} hätte <b>5 €</b> in Topf A eingezahlt, <b>0 €</b> in Topf B und <b>5 €</b> behalten.</p>
+
+<table class="table" >
+        <tr>
+            <th align="center" colspan="5"><b>Andere Gruppe</b></th>
+    </tr>
+    <tr>
+        <th width="12%"></th>
+        <th width="26%"><b>Topf A</b></th>
+        <th width="26%"><b>Topf B</b></th>
+        <th width="26%"><b>Behalten</b></th>
+        <th width="8%"></th>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 1 </b> </td>
+        <td>5 €  </td>
+        <td> 0 €  </td>
+        <td>  5 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 2 </b> </td>
+        <td > 5 €  </td>
+        <td > 0 €  </td>
+        <td > 5 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 3 </b> </td>
+        <td > 5 €  </td>
+        <td > 0 €  </td>
+        <td > 5 € </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Summe </b> </td>
+        <td ><b> 15 € </b> </td>
+        <td> <b> 0 €</b>  </td>
+        <td> <b> </b>        </td>
+        <td></td>
+
+
+ </table>
+<p></p>
+
+<p>Für jeden Euro in <b>Topf B</b> der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} werden Ihnen und jedem Mitglied Ihrer eigenen Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} nun <b>0,50 €</b> von der Endauszahlung abgezogen.</p>
+<p>Im Topf A sind <b>15 €</b>. In <b>Topf B</b> sind <b>0€</b>. Somit werden Ihnen <b>0 €</b> von <b>12,50 €</b> abgezogen.</p>
+
+        <p></p>
+    <p><b>Fall 2</b></p>
+<p>Nehmen Sie nun an, jedes Mitglied der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} hätte <b>5 €</b> in <b>Topf B</b> eingezahlt, <b>0 €</b> in <b>Topf A</b> und <b>5 €</b> behalten.</p>
+
+<table class="table" >
+            <tr>
+            <th align="center" colspan="5"><b>Andere Gruppe</b></th>
+    </tr>
+ <tr>
+        <th width="12%"></th>
+        <th width="26%"><b>Topf A</b></th>
+        <th width="26%"><b>Topf B</b></th>
+        <th width="26%"><b>Behalten</b></th>
+        <th width="8%"></th>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 1 </b> </td>
+        <td>0 €  </td>
+        <td> 5 €  </td>
+        <td>  5 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 2 </b> </td>
+        <td > 0 €  </td>
+        <td > 5 €  </td>
+        <td > 5 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 3 </b> </td>
+        <td > 0 €  </td>
+        <td > 5 €  </td>
+        <td > 5 € </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Summe </b> </td>
+        <td ><b> 0 € </b> </td>
+        <td> <b> 15 €</b>  </td>
+        <td> <b> </b>        </td>
+        <td></td>
+
+ </table>
+<p></p>
+<p>Für jeden Euro in <b>Topf B</b> der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} werden Ihnen und jedem Mitglied Ihrer Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} nun <b>0,50€</b> von der Endauszahlung abgezogen.</p>
+<p>Im <b>Topf A</b> sind 0 €. In <b>Topf B</b> sind <b>15 €</b>. Somit werden Ihnen <b>15 €*0,50€=7,50€</b> von <b>12,50€</b> abgezogen. Ihre Endauszahlung ist <b>5 €</b></p>
+<p></p>
+
+
+
+    {% next_button %}
+{% endblock %}

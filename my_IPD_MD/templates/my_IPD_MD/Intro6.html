@@ -1,0 +1,101 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}  Gruppenaufgabe {% endblock %}
+
+{% block content %}
+<h4>Beispiel 2</h4>
+
+     <p></p>
+<h4> <b>Ihre Gruppe </b> {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</h4>
+<p>Stellen Sie sich nun vor, Sie haben 5 € von {{ Constants.endowment }} € in Topf A eingezahlt und 5 € in Topf B. </p>
+<p>Die beiden Mitglieder Ihrer Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} haben ebenfalls 5€ in Topf A und 5€ in Topf B eingezahlt. </p>
+
+<p> Wie viele Euro befinden sich nun in Topf A und B? Bitte vervollständigen Sie die Tabelle. </p>
+
+
+
+<table class="table" >
+    <tr>
+        <th width="12%"></th>
+        <th width="26%">Topf A</th>
+        <th width="26%">Topf B</th>
+        <th width="26%">Behalten</th>
+        <th width="8%"></th>
+    </tr>
+    <tr>
+        <td ><b> Sie </b> </td>
+        <td>5 €  </td>
+        <td> 5 €  </td>
+        <td>  0 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 1 </b> </td>
+        <td > 5 €  </td>
+        <td > 5 €  </td>
+        <td > 0 €        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Mitglied 2 </b> </td>
+        <td > 5 €  </td>
+        <td > 5 €  </td>
+        <td > 0 € </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ><b> Summe </b> </td>
+        <td > {% formfield player.ex_sum_a %}  </td>
+        <td>  {% formfield player.ex_sum_b %} </td>
+        <td> <b> </b>        </td>
+        <td></td>
+    </tr>
+ </table>
+<p></p>
+<p>Für jeden Euro in Topf A oder B erhalten Sie und beide Mitglieder der Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}  nun 0,50€.</p>
+<p>Wie viel erhalten Sie aus Topf A und B zurück? Bitte vervollständigen Sie die untere Tabelle. </p>
+
+<table class="table" >
+    <tr>
+        <td></td>
+        <td colspan="8" align="center" ><b>Rückzahlung </b></td>
+        <td ></td>
+        <td ></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td ></td>
+        <td colspan="3"><b>Topf A eigene Gruppe</b> </td>
+
+        <td ></td>
+          <td colspan="3"><b>Topf B eigene Gruppe</b> </td>
+
+        <td></td>
+        <td ><b>Behalten</b> </td>
+        <td colspan="2"><b>Summe</b> </td>
+
+    </tr>
+    <tr>
+        <td width="2%"><b>  Sie </b> </td>
+        <td>0,50&#215; </td>
+        <td width="12%"> 15 € </td>
+        <td width="2%">=</td>
+        <td width="12%"> {% formfield player.ex_back_a %}  </td>
+        <td>0,50&#215; </td>
+        <td width="12%"> 15 € </td>
+        <td width="2%">=</td>
+        <td width="12%">  {% formfield player.ex_back_b %}  </td>
+        <td> <b> + 0 €   </b>  </td>
+        <td width="2%">=</td>
+        <td bgcolor=#D7DBDD><b>  {% formfield player.ex_sum %} </b></td>
+    </tr>
+ </table>
+
+<p></p>
+
+    {% next_button %}
+{% endblock %}
+
+
+

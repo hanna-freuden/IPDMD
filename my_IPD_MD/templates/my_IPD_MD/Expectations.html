@@ -1,0 +1,46 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %} Gruppenaufgabe {% endblock %}
+
+{% block content %}
+
+
+<p>Nun möchten wir von Ihnen wissen, wie Sie Ihre Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} sowie der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} einschätzen. Was denken Sie, wie viel die Mitglieder von {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} sowie {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} jeweils in Topf A und B eingezahlt haben?</p>
+<p> Pro richtiger Einschätzung erhalten Sie zusätzlich 0,50 €.</p>
+<h5>Was denken Sie: Wieviel hat jedes Mitglied <b>Ihrer Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</b> durchschittlich eingezahlt?</h5>
+<table>
+    <tr>
+        <th></th>
+        <th>Topf A </th>
+        <th>Topf B</th>
+    </tr>
+    <tr>
+        <td width ="40%">Mitglied <b>{% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</b></td>
+        <td width="40%"> {% formfield player.exp_own_a %} </td>
+        <td width="40%"> {% formfield player.exp_own_b %}</td>
+    </tr>
+
+</table>
+
+<h5>Was denken Sie: Wieviel hat jedes Mitglied der <b>Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</b> durchschittlich eingezahlt?</h5>
+<table>
+    <tr>
+        <th></th>
+        <th>Topf A </th>
+        <th>Topf B</th>
+    </tr>
+    <tr>
+        <td width="40%">Mitglied <b>{% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}</b></td>
+        <td width="40%"> {% formfield player.exp_other_a %} </td>
+        <td width="40%"> {% formfield player.exp_other_b %}</td>
+    </tr>
+
+</table>
+
+     <p></p>
+     <p></p>
+     <p></p>
+        {% next_button %}
+
+{% endblock %}

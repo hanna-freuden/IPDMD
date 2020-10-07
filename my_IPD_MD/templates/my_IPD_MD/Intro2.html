@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %} Gruppenaufgabe {% endblock %}
+
+{% block content %}
+<p>Jedes Mitglied  der Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  und der Gruppe  <font color="#4FBA44"><b> "Grün" </b> </font> {% else %}  <font color="#4FBA44"><b> "Grün" </b> </font> und der Gruppe  <font color="#0000FF"> <b> "Blau" </b> </font> {% endif %} erhält nun <b>{{Constants.endowment }}</b> (unabhängig vom Startguthaben).
+Mit diesem Betrag kann jeder in <b>2 verschiedene Töpfe (A und B)</b> einzahlen oder das Guthaben<b> behalten</b>. </p>
+<p>Was passiert in den unterschiedlichen Optionen? </p>
+
+<h5>Geber-Optionen: </h5>
+ <img src="{% static 'IPD_decision.png' %}"/>
+
+<table class="table" >
+    <tr>
+        <td width="30%"><b> Für jeden Euro, den Sie in Topf A einzahlen, gibt es eine Prämie und jedes Mitglied Ihrer Gruppe inklusive Ihnen erhält 0,50 €.</b> </td>
+
+        <td width="30%">  <b> Für jeden Euro, den Sie in Topf B einzahlen, gibt es eine Prämie und jedes Mitglied Ihrer Gruppe inklusive Ihnen erhält 0,50 €.</b>  </td>
+
+        <td width="30%"> <b> Alles, was Sie nicht nicht in Topf A oder B einzahlen, behalten sie für sich.</b>        </td>
+    </tr>
+        <tr>
+            <td>{% if player.id_in_group < 4 %} <img src="{% static 'IPD_own_blue.png' %}"/> {% else %} <img src="{% static 'IPD_own_green.png' %}"/> {% endif %}  </td>
+             <td>{% if player.id_in_group < 4 %} <img src="{% static 'IPD_own_blue.png' %}"/> {% else %} <img src="{% static 'IPD_own_green.png' %}"/> {% endif %}  </td>
+            <td></td>
+        </tr>
+     <tr>
+         <td></td>
+         <td><b> Zusätzlich wird jedem Mitglied der anderen Gruppe 0,50 € abgezogen.</b> </td>
+         <td></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td> {% if player.id_in_group < 4 %} <img src="{% static 'IPD_other_green.png' %}"/> {% else %} <img src="{% static 'IPD_other_blue.png' %}"/> {% endif %}  </td>
+         <td></td>
+     </tr>
+</table>
+
+Klicken Sie auf "Weiter" für ein Beispiel.
+<p></p>
+
+     <p></p>
+     <p></p>
+     <p></p>
+        {% next_button %}
+
+{% endblock %}

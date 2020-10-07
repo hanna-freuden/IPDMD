@@ -1,0 +1,69 @@
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %} Results {% endblock %}
+
+{% block content %}
+
+    {% if player.role == 'subgroup1' %}
+        <p>
+           You started with an endowment of {{ Constants.endowment }},
+            of which you contributed {{ player.contribution_within }} to WITHIN and {{ player.contribution_between }} to BETWEEN.
+            Your group contributed {{ group.subgroup1_within }} to WITHIN and {{ group.subgroup1_between }} to BETWEEN.
+            The other group contributed {{ group.subgroup2_within }} to WITHIN and {{ group.subgroup2_between }} to BETWEEN.
+            Your profit is therefore {{ player.payoff }}.
+        </p>
+
+
+    {% else %}
+        <p>
+           You started with an endowment of {{ Constants.endowment }},
+            of which you contributed {{ player.contribution_within }} to WITHIN and {{ player.contribution_between }} to BETWEEN.
+            Your group contributed {{ group.subgroup2_within }} to WITHIN and {{ group.subgroup2_between }} to BETWEEN.
+            The other group contributed {{ group.subgroup1_within }} to WITHIN and {{ group.subgroup1_between }} to BETWEEN.
+            Your profit is therefore {{ player.payoff }}.
+            
+        </p>
+    {% endif %}
+
+<table class="table">
+    <tr>
+        <th> {% if player.role == 'subgroup1' %} Your Group's Contribution Within {% else %} Other Group's Contribution
+            Within {% endif %}
+        </th>
+        <th> {% if player.role == 'subgroup2' %} Your Group's Contribution Within {% else %} Other Group's Contribution
+            Within {% endif %}
+        </th>
+        <th> {% if player.role == 'subgroup1' %} Your Group's Contribution Between {% else %} Other Group's Contribution
+            Between {% endif %}
+        </th>
+        <th> {% if player.role == 'subgroup2' %} Your Group's Contribution Between {% else %} Other Group's Contribution
+            Between {% endif %}
+        </th>
+        <th> Your Payoff</th>
+    </tr>
+    {% for p in player.in_all_rounds %}
+        {% for g in group.in_all_rounds %}
+    <tr>
+        <td> {{ g.subgroup1_within }}</td>
+        <td> {{ g.subgroup2_within }}</td>
+        <td> {{ g.subgroup1_between }}</td>
+        <td> {{ g.subgroup2_between }}</td>
+        <td> {{ p.payoff }}</td>
+    </tr>
+ {% endfor %}
+     {% endfor %}
+
+</table>
+
+    <p>
+
+    </p>
+
+
+
+
+    <p>{% next_button %}</p>
+
+
+{% endblock %}

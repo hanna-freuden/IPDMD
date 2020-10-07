@@ -1,0 +1,28 @@
+
+{% extends "global/Page.html" %}
+{% load static otree %}
+
+{% block title %}  Gruppenaufgabe {% endblock %}
+
+{% block content %}
+
+     <p></p>
+     <h4>Vielen Dank, dass die Übungsfragen beantwortet haben!</h4>
+<b>Bevor Sie nun Ihre Entscheidung treffen, hier noch mal eine Zusammenfassung des Ablaufs:</b>
+<p></p>
+<table class="table" >
+    <tr>
+        <td><b> 1. Einzahlung aller Mitglieder der eigenen Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b>"Blau"</b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}in Topf A und B oder Behalten  </b> </td>
+    </tr>
+    <tr>
+        <td><b> 2. Rückzahlung von 0,50 € für jeden Euro in Topf A und B an alle Mitglieder der Gruppe{% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %} </b> </td>
+    </tr>
+    <tr>
+        <td><b> 3. Abzug von 0,50 € von jedem Mitglied der Gruppe {% if player.id_in_group < 4 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}für jeden Euro im Topf B der Gruppe {% if player.id_in_group > 3 %} <font color="#0000FF"> <b> "Blau" </b></font>  {% else %}  <font color="#4FBA44"><b> "Grün"</b> </font> {% endif %}  </b> </td>
+    </tr>
+ </table>
+
+ {% if player.id_in_group < 4 %} <img src="{% static 'IPD_full_blue_small.png' %}"/>  {% else %} <img src="{% static 'IPD_full_green_small.png' %}"/> {% endif %}
+<p>Wenn Sie auf "Weiter" klicken, können Sie Ihre Entscheidung treffen.</p>
+    {% next_button %}
+{% endblock %}

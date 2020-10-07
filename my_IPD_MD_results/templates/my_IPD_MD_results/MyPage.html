@@ -1,0 +1,177 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Ergebnisse
+{% endblock %}
+
+{% block content %}
+
+<p>Vielen Dank für Ihre Angaben. Wir kommen nun zum Ende des Experiments. Ihre Teilnehmernummer ist {{ id_in_group }}.  </p>
+<p>Hier Ihre Ergebnisse:</p>
+
+
+<table style="width:100%">
+    <tr bgcolor=#CCFFCC>
+        <td ><b>Ihr Startguthaben</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+    <tr style="border-bottom: 1px solid #000;">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b> 15€ </b></td>
+    </tr>
+        <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+        </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+
+
+    <tr class="blank_row">
+        <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+        <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+        <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+        <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+    </tr>
+
+
+        <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+             <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+    </tr>
+    <tr bgcolor=#CCFFCC>
+        <td><b>Gruppenaufgabe</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Extra-Guthaben für diese Aufgabe</td>
+        <td>10€</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Davon behalten</li></ul></td>
+        <td></td>
+        <td>{{ keep }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Davon eingezahlt in Topf A</li></ul></td>
+        <td> {{ contribution_within }}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Davon eingezahlt in Topf B</li></ul> </td>
+        <td>{{ contribution_between }} </td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Gesamte Einzahlung Ihrer Gruppe in Topf A</td>
+        <td>  {% if role == 'subgroup1' %} {{ subgroup1_within }} {% else %}  {{ subgroup2_within }}     {% endif %}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Rückzahlung an Sie</li></ul> </td>
+        <td> </td>
+        <td> {{ payback_a }} </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Gesamte Einzahlung Ihrer Gruppe in Topf B</td>
+        <td>  {% if role == 'subgroup1' %} {{ subgroup1_between }} {% else %}  {{ subgroup2_between }}     {% endif %}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Rückzahlung an Sie</li></ul> </td>
+        <td> </td>
+        <td> {{ payback_b }} </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Gesamte Einzahlung der anderen Gruppe in Topf B</td>
+        <td>  {% if role == 'subgroup1' %} {{ subgroup2_between }} {% else %}  {{ subgroup1_between }}     {% endif %}</td>
+        <td></td>
+    <td></td>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Abzug von Ihrem Guthaben</li></ul> </td>
+        <td> </td>
+        <td> {{ subtract_b }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Einzahlungen der anderen Teilnehmer richtig geschätzt</td>
+        <td>{{ exp_right }} Mal </td>
+        <td></td>
+        <td></td>
+    <tr>
+    <tr>
+        <td><ul style="list-style-type: disc"> <li>Bonus</li></ul> </td>
+        <td> </td>
+        <td> {{ payoff_extra }}</td>
+        <td></td>
+    </tr>
+
+
+    <tr style="border-bottom: 1px solid #000;">
+        <td><b>Ihre Auszahlung</b></td>
+        <td></td>
+        <td></td>
+        <td><b>{{ IPD_payoff }}</b></td>
+
+    </tr>
+
+    <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+    </tr>
+
+    <tr style="border-bottom: 1px solid #000;" bgcolor=#CCFFCC>
+        <td><b>Gesamte Auszahlung</b></td>
+        <td>SUMME</td>
+        <td></td>
+        <td><b> {{ final_payoff_with_endowment}} </b></td>
+    </tr>
+    <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+    </tr>
+    <tr class="blank_row">
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+            <td bgcolor="#FFFFFF" colspan="4">&nbsp;</td>
+    </tr>
+
+ </table>
+
+
+
+
+{% endblock %}
+
+
+
